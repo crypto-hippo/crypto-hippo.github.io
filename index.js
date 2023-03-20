@@ -1,3 +1,6 @@
 window.onload = function() {
-    console.log("Window onload");
+    $('.nav-toggle').click(function(e) {
+        $('.rss-nav').toggleClass('closed');
+    })
 }
+
