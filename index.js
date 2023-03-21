@@ -96,6 +96,7 @@ $(document).ready(function() {
 
     $('.nav-toggle').click(function(e) {
         $('.rss-nav').toggleClass('closed');
+        $('.feed-view').toggleClass("closed")
         if ($('.nav-toggle i').hasClass('fa-chevron-left')) {
             $('.nav-toggle i').removeClass('fa-chevron-left');
             $('.nav-toggle i').addClass('fa-chevron-right');
