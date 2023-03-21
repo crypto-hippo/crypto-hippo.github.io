@@ -33,6 +33,7 @@ body, html {
     align-items: center;
     top: 62px;
     transition: 1s ease;
+    background: midnightblue;
 }
 
 .rss-nav.closed {
@@ -40,18 +41,39 @@ body, html {
 }
 
 .rss-nav.closed .nav-toggle {
-    left: 12px
+    left: 15px
 }
 
 .rss-nav .nav-toggle {
-    width: 25px;
-    height: 50px;
+    width: 30px;
+    height: 60px;
     border-radius: 4px;
-    margin-left: 308px;
+    margin-left: 305px;
     position: absolute;
     background: linear-gradient(to right, #00b4db, #0083b0);
     display: flex;
     align-items: center;
+}
+
+.rss-nav .rss-nav-links {
+    width: 100%;
+    position: absolute;
+    top: 0;
+}
+
+.rss-nav .nav-link {
+    height: 50px;
+    color: azure;
+    display: flex;
+    align-items: center;
+    padding-left: 12px;
+    width: calc(100% - 12px);
+}
+
+.rss-nav .nav-link:hover {
+    background: #006bb3;
+    color: azure;
+    cursor: pointer;
 }
 
 .nav-toggle:hover {
@@ -62,3 +84,17 @@ body, html {
     color: white;
     margin: 0 auto;
 }
+
+.feed-view {
+    width: calc(100% - 320px);
+    margin-left: 320px;
+    height: 100%;
+    overflow-y: scroll;
+    padding: 12px;
+}
+
+.feed-view.closed {
+    width: 100%;
+    margin-left: 20px;
+}
+
