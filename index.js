@@ -71,27 +71,27 @@ $(document).ready(function() {
         })
     })
 
-    $("#altinity").click(function() {
-        $('.feed-view').empty();
-        fetch(`${main_url}/altinity`, {method: 'GET', headers: {"accept": "application/json"}})
-            .then(response => {
-                response.json().then(data => {
-                    // console.log(data.data.rss.channel.item);
-                    let items = data.data.rss.channel.item;
-                    items.forEach(item => {
-                        console.log(item);
-                        let item_row = document.createElement("div")
-                        item_row.className = "item-row"
-                        let description = document.createElement("div")
-                        description.className = "item-description";
-                        description.innerText = item.title;
-                        item_row.appendChild(description)
-                        $('.feed-view').append(item_row);
-
-                    })
-                })
-            })
-    })
+    // $("#altinity").click(function() {
+    //     $('.feed-view').empty();
+    //     fetch(`${main_url}/altinity`, {method: 'GET', headers: {"accept": "application/json"}})
+    //         .then(response => {
+    //             response.json().then(data => {
+    //                 // console.log(data.data.rss.channel.item);
+    //                 let items = data.data.rss.channel.item;
+    //                 items.forEach(item => {
+    //                     console.log(item);
+    //                     let item_row = document.createElement("div")
+    //                     item_row.className = "item-row"
+    //                     let description = document.createElement("div")
+    //                     description.className = "item-description";
+    //                     description.innerText = item.title;
+    //                     item_row.appendChild(description)
+    //                     $('.feed-view').append(item_row);
+    //
+    //                 })
+    //             })
+    //         })
+    // })
 
 
     $('.nav-toggle').click(function(e) {
@@ -105,6 +105,8 @@ $(document).ready(function() {
             $('.nav-toggle i').addClass('fa-chevron-left');
         }
     })
+
+    document.getElementById("kubernetes").click();
 
 })
 
