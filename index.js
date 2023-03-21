@@ -12,6 +12,7 @@ $(document).ready(function() {
             response.json().then(data => {
                 // console.log(data.data.rss.channel.item);
                 let items = data.data.rss.channel.item;
+                console.log(items);
                 items.forEach(item => {
                     console.log(item);
                     let item_row = document.createElement("div")
@@ -19,7 +20,11 @@ $(document).ready(function() {
                     let description = document.createElement("div")
                     description.className = "item-description";
                     description.innerText = item.title;
-                    item_row.appendChild(description)
+
+                    let link = document.createElement("a");
+                    link.href = item.link;
+                    link.innerText = item.title;
+                    item_row.appendChild(link)
                     $('.feed-view').append(item_row);
 
                 })
@@ -34,6 +39,7 @@ $(document).ready(function() {
             response.json().then(data => {
                 // console.log(data.data.rss.channel.item);
                 let items = data.data.rss.channel.item;
+                console.log(items);
                 items.forEach(item => {
                     console.log(item);
                     let item_row = document.createElement("div")
@@ -41,7 +47,11 @@ $(document).ready(function() {
                     let description = document.createElement("div")
                     description.className = "item-description";
                     description.innerText = item.title;
-                    item_row.appendChild(description)
+
+                    let link = document.createElement("a");
+                    link.href = item.link;
+                    link.innerText = item.title;
+                    item_row.appendChild(link)
                     $('.feed-view').append(item_row);
 
                 })
@@ -56,6 +66,7 @@ $(document).ready(function() {
             response.json().then(data => {
                 // console.log(data.data.rss.channel.item);
                 let items = data.data.rss.channel.item;
+                console.log(items);
                 items.forEach(item => {
                     console.log(item);
                     let item_row = document.createElement("div")
@@ -63,7 +74,11 @@ $(document).ready(function() {
                     let description = document.createElement("div")
                     description.className = "item-description";
                     description.innerText = item.title;
-                    item_row.appendChild(description)
+
+                    let link = document.createElement("a");
+                    link.href = item.link;
+                    link.innerText = item.title;
+                    item_row.appendChild(link)
                     $('.feed-view').append(item_row);
 
                 })
