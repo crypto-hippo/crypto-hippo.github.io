@@ -5,7 +5,7 @@ $(document).ready(function() {
     let url = "http://localhost:3000/get_rss";
     let main_url = "https://github-pages-api.uc.r.appspot.com/get_rss";
 
-    let load_items = function() {
+    let load_items = function(items) {
         items.forEach(item => {
             // console.log(item);
             let item_row = document.createElement("div")
@@ -42,7 +42,7 @@ $(document).ready(function() {
             response.json().then(data => {
                 // console.log(data.data.rss.channel.item);
                 let items = data.data.rss.channel.item;
-                console.log(items);
+                // console.log(items);
                 load_items(items)
             })
         })
@@ -55,7 +55,7 @@ $(document).ready(function() {
             response.json().then(data => {
                 // console.log(data.data.rss.channel.item);
                 let items = data.data.rss.channel.item;
-                console.log(items);
+                // console.log(items);
                 load_items(items);
             })
         })
