@@ -20,7 +20,7 @@ import os
 import requests
 import config
 import xmltodict
-
+from pyairtable import Table
 def create_flask_app():
 	new_app = Flask(__name__, template_folder="dist")
 	new_app.config["SECRET_KEY"] = config.secret_key
@@ -59,6 +59,26 @@ def get_rss(key):
 	except Exception as e:
 		return jsonify({"data": {}})
 
+
+@app.route('/get_airtable/<table_name>', methods=["GET"])
+def get_airtable(table_name):
+	try:
+		api_key = 'patQFfToYZzuhx8qx.0fd251bfefc9833fed66c72ba123c88b4aee9a67be8765692fbf38ea78f01768'
+		base = "appH9zNOnVDgzZVXI"
+		table = Table(api_key, base, table_name)
+		return jsonify({"records": table.all()})
+	except Exception as e:
+		return str(e)
+
+@app.route('/get_products_table', methods=["GET"])
+def get_products():
+	try:
+		api_key = 'patQFfToYZzuhx8qx.0fd251bfefc9833fed66c72ba123c88b4aee9a67be8765692fbf38ea78f01768'
+		base = "appH9zNOnVDgzZVXI"
+		table = Table(api_key, base, 'L7 Products / Apps CONTENT')
+		return jsonify({"records": table.all()})
+	except Exception as e:
+		return str(e)
 
 @app.route('/css/<filename>')
 def css(filename):

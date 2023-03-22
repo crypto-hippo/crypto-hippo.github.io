@@ -5,6 +5,23 @@ $(document).ready(function() {
     let url = "http://localhost:3000/get_rss";
     let main_url = "https://github-pages-api.uc.r.appspot.com/get_rss";
 
+    let load_items = function() {
+        items.forEach(item => {
+            // console.log(item);
+            let item_row = document.createElement("div")
+            item_row.className = "item-row"
+            let description = document.createElement("div")
+            description.className = "item-description";
+            description.innerText = item.title;
+
+            let link = document.createElement("a");
+            link.href = item.link;
+            link.innerText = item.title;
+            item_row.appendChild(link)
+            $('.feed-view').append(item_row);
+        })
+    }
+
     $("#kubernetes").click(function() {
         $('.feed-view').empty();
         fetch(`${main_url}/kubernetes`, {method: 'GET', headers: {"accept": "application/json"}})
@@ -12,22 +29,8 @@ $(document).ready(function() {
             response.json().then(data => {
                 // console.log(data.data.rss.channel.item);
                 let items = data.data.rss.channel.item;
-                console.log(items);
-                items.forEach(item => {
-                    console.log(item);
-                    let item_row = document.createElement("div")
-                    item_row.className = "item-row"
-                    let description = document.createElement("div")
-                    description.className = "item-description";
-                    description.innerText = item.title;
-
-                    let link = document.createElement("a");
-                    link.href = item.link;
-                    link.innerText = item.title;
-                    item_row.appendChild(link)
-                    $('.feed-view').append(item_row);
-
-                })
+                // console.log(items);
+                load_items(items)
             })
         })
     })
@@ -40,21 +43,7 @@ $(document).ready(function() {
                 // console.log(data.data.rss.channel.item);
                 let items = data.data.rss.channel.item;
                 console.log(items);
-                items.forEach(item => {
-                    console.log(item);
-                    let item_row = document.createElement("div")
-                    item_row.className = "item-row"
-                    let description = document.createElement("div")
-                    description.className = "item-description";
-                    description.innerText = item.title;
-
-                    let link = document.createElement("a");
-                    link.href = item.link;
-                    link.innerText = item.title;
-                    item_row.appendChild(link)
-                    $('.feed-view').append(item_row);
-
-                })
+                load_items(items)
             })
         })
     })
@@ -67,21 +56,7 @@ $(document).ready(function() {
                 // console.log(data.data.rss.channel.item);
                 let items = data.data.rss.channel.item;
                 console.log(items);
-                items.forEach(item => {
-                    console.log(item);
-                    let item_row = document.createElement("div")
-                    item_row.className = "item-row"
-                    let description = document.createElement("div")
-                    description.className = "item-description";
-                    description.innerText = item.title;
-
-                    let link = document.createElement("a");
-                    link.href = item.link;
-                    link.innerText = item.title;
-                    item_row.appendChild(link)
-                    $('.feed-view').append(item_row);
-
-                })
+                load_items(items);
             })
         })
     })

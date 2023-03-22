@@ -12,3 +12,4 @@ sendgrid==6.9.7
 python-dateutil
 xmltodict
 requests
+pyairtable
